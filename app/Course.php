@@ -23,8 +23,8 @@ class Course extends Model
         return $this->belongsToMany(Student::class);
     }
 
-    public function lectures(){
-        return $this->belongsToMany(Lecture::class);
+    public function lecturers(){
+        return $this->belongsToMany(Lecturer::class);
 
     }
 

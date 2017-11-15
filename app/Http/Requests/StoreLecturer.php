@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateLecture extends FormRequest
+class StoreLecturer extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,16 +16,16 @@ class UpdateLecture extends FormRequest
         return true;
     }
 
-    public function wantsJson()
-    {
-        return true;
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
+    public function wantsJson()
+    {
+        return true;
+    }
+
     public function rules()
     {
         return [
@@ -33,7 +33,8 @@ class UpdateLecture extends FormRequest
             'last_name'=>'required|max:100',
             'title'=>'required|max:50',
             'email'=>'required|email',
-            'introduction'=>'required',
+            'introduction'=>'required'
+
             //
         ];
     }

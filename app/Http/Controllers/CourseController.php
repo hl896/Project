@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Http\Requests\StoreCourse;
 use App\Http\Requests\UpdateCourse;
-use App\Lecture;
+use App\Lecturer;
 use App\Student;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ class CourseController extends Controller
     public function index()
     {
         //
-        return Course::with('students','lectures')->get();//model+ collections
+        return Course::with('students','lecturers')->get();//model+ collections
     }
 
     /**
@@ -53,7 +53,7 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         //
-        $course->load('students','lectures');
+        $course->load('students','lecturers');
         return $course;
 
 
@@ -83,7 +83,7 @@ class CourseController extends Controller
     {
         //
         $course->update($request->all());
-        $course->load('students','lectures');
+        $course->load('students','lecturers');
 
         return $course;
 
@@ -92,7 +92,7 @@ class CourseController extends Controller
 
     public function addStudent(Course $course,Student $student){
         $course->students()->syncWithoutDetaching($student);
-        $course->load('students','lectures');
+        $course->load('students','lecturers');
 
         return $course;
 
@@ -101,22 +101,22 @@ class CourseController extends Controller
 
     public function removeStudent(Course $course,Student $student){
         $course->students()->detach($student);
-        $course->load('students','lectures');
+        $course->load('students','lecturers');
 
         return $course;
     }
 
 
-    public function addLecture(Course $course, Lecture $lecture){
+    public function addLecturer(Course $course, Lecturer $lecture){
         $course->lectures()->syncWithoutDetaching($lecture);
-        $course->load('students','lectures');
+        $course->load('students','lecturers');
         return $course;
 
     }
 
-    public function removeLecture(Course $course, Lecture $lecture){
+    public function removeLecturer(Course $course, Lecturer $lecture){
         $course->lectures()->detach($lecture);
-        $course->load('students','lectures');
+        $course->load('students','lecturers');
         return $course;
 
     }

@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::group([''],function(){
-    Route::resource('lectures',LectureController::class);
+    Route::resource('lecturers',LecturerController::class);
     Route::resource('students',StudentController::class);
     Route::resource('courses',CourseController::class);
 
@@ -30,9 +30,9 @@ Route::group([''],function(){
     Route::put('courses/{course}/students/{student}','CourseController@addStudent');
     Route::delete('courses/{course}/students/{student}','CourseController@removeStudent');
 
-    Route::put('courses/{course}/lectures/{lecture}','CourseController@addLecture');
+    Route::put('courses/{course}/lecturers/{lecturer}','CourseController@addLecturer');
 
-    Route::delete('courses/{course}/lectures/{lecture}','CourseController@removeLecture');
+    Route::delete('courses/{course}/lecturers/{lecturer}','CourseController@removeLecturer');
 
 
 

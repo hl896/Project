@@ -14,9 +14,9 @@ class CreateCoursesTable extends Migration
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->increments('id')->unique();
-            $table->string('name')->unique();
-            $table->string('code')->unique();
+            $table->increments('id');
+            $table->string('name');
+            $table->string('code');
             $table->string('start_at');
             $table->string('end_at');
             $table->text('introduction')->nullable();

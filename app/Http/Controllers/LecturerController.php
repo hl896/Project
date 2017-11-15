@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreLecture;
-use App\Http\Requests\UpdateLecture;
-use App\Lecture;
+use App\Http\Requests\StoreLecturer;
+use App\Http\Requests\UpdateLecturer;
+use App\Lecturer;
 use Illuminate\Http\Request;
 
-class LectureController extends Controller
+class LecturerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class LectureController extends Controller
     public function index()
     {
         //
-        return Lecture::with('courses')->get();
+        return Lecturer::with('courses')->get();
     }
 
     /**
@@ -36,19 +36,19 @@ class LectureController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLecture $request)
+    public function store(StoreLecturer $request)
     {
         //
-        return Lecture::create($request->all());
+        return Lecturer::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Lecture  $lecture
+     * @param  \App\Lecturer  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function show(Lecture $lecture)
+    public function show(Lecturer $lecture)
     {
         //
         $lecture->load('courses');
@@ -59,10 +59,10 @@ class LectureController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Lecture  $lecture
+     * @param  \App\Lecturer  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lecture $lecture)
+    public function edit(Lecturer $lecture)
     {
         //
     }
@@ -71,10 +71,10 @@ class LectureController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Lecture  $lecture
+     * @param  \App\Lecturer  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLecture $request, Lecture $lecture)
+    public function update(UpdateLecturer $request, Lecturer $lecture)
     {
         //
         $lecture->update($request->all());
@@ -91,10 +91,10 @@ class LectureController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Lecture  $lecture
+     * @param  \App\Lecturer  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lecture $lecture)
+    public function destroy(Lecturer $lecture)
     {
         //
 
